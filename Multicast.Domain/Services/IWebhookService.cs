@@ -1,7 +1,9 @@
+using Multicast.Domain.Models;
+
 namespace Multicast.Domain.Services
 {
     public interface IWebHookService
     {
-        Task SubscribeAsync();
+        Task SubscribeAsync(Subscription subscription);
     }
 }

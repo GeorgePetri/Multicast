@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multicast", "Multicast\Mult
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multicast Tests", "Multicast.Tests\Multicast.csproj", "{7BB030E4-E99D-476C-BB46-978C887AF49E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multicast.Domain", "Multicast.Domain\Multicast.Domain.csproj", "{6D2D6799-823E-4635-9015-4C39DFC38957}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7BB030E4-E99D-476C-BB46-978C887AF49E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BB030E4-E99D-476C-BB46-978C887AF49E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BB030E4-E99D-476C-BB46-978C887AF49E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D2D6799-823E-4635-9015-4C39DFC38957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D2D6799-823E-4635-9015-4C39DFC38957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D2D6799-823E-4635-9015-4C39DFC38957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D2D6799-823E-4635-9015-4C39DFC38957}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

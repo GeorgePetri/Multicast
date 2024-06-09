@@ -5,8 +5,8 @@ using Multicast.Domain.Models;
 [Route("[controller]")]
 public class WebHookController : ControllerBase
 {
-    [HttpPost(Name = "Add")]
-    public ActionResult Add([FromBody] Subscription subscription)
+    [HttpPost(Name = "Subscribe")]
+    public ActionResult Subscribe([FromBody] Subscription subscription)
     {
         return Created();
     }
