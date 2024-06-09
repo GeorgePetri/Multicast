@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multicast", "Multicast\Multicast.csproj", "{E94BCE64-D8C8-4D32-962F-7163BE63B0BC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multicast Tests", "Multicast.Tests\Multicast.csproj", "{7BB030E4-E99D-476C-BB46-978C887AF49E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multicast Web Tests", "Multicast.Web.Tests\Multicast.Web.Tests.csproj", "{7BB030E4-E99D-476C-BB46-978C887AF49E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multicast.Domain", "Multicast.Domain\Multicast.Domain.csproj", "{6D2D6799-823E-4635-9015-4C39DFC38957}"
 EndProject
