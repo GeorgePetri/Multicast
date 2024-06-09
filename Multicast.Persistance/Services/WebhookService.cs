@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using Multicast.Domain.Models;
 using Multicast.Domain.Services;
 using Multicast.Persistance.Entities;
@@ -12,11 +13,18 @@ public class WebhookService : IWebhookService
     public WebhookService(Context context) =>
         _context = context;
 
+    public async Task<Subscription?> GetAsync(string url)
+    {
+        var result = await _context.Subscriptions
+            .Where(s => s.Url == url)
+            .FirstOrDefaultAsync();
+
+        return result is null ? null : new Subscription(result.Url);
+    }
+
     public async Task SubscribeAsync(Subscription subscription)
     {
-        var found = await _context.Subscriptions
-            .Where(s => s.Url == subscription.Url)
-            .FirstOrDefaultAsync();
+        var found = await GetAsync(subscription.Url);
 
         if (found is not null)
             return;

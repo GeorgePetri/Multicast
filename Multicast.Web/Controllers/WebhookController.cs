@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Multicast.Domain.Models;
 using Multicast.Domain.Services;
@@ -13,6 +14,11 @@ public class WebhookController : ControllerBase
     public WebhookController(IWebhookService webHookService) =>
         _webhookService = webHookService;
 
+    [HttpGet]
+    public async Task<ActionResult<Subscription>> Get([FromQuery, Required] string url)
+    {
+        return await _webhookService.GetAsync(url);
+    }
 
     [HttpPost(Name = "Subscribe")]
     public async Task<ActionResult> Subscribe([FromBody] Subscription subscription)
