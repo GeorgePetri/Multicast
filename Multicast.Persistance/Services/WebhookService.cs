@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query;
 using Multicast.Domain.Models;
 using Multicast.Domain.Services;
 using Multicast.Persistance.Entities;
