@@ -21,6 +21,15 @@ public class WebhookService : IWebhookService
         return result is null ? null : new Subscription(result.Url);
     }
 
+    public async Task<Subscription[]> GetAllAsync()
+    {
+        var result = await _context.Subscriptions
+            .Select(s => new Subscription(s.Url))
+            .ToArrayAsync();
+
+        return result;
+    }
+
     public async Task SubscribeAsync(Subscription subscription)
     {
         var found = await GetAsync(subscription.Url);
