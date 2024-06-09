@@ -13,11 +13,11 @@ namespace Multicast.Web.Tests.Controllers
         {
             // Arrange
             var url = "http://localhost:5000/webhook";
-            var webhookServiceMock = new Mock<IWebhookService>();
-            webhookServiceMock.Setup(x => x.GetAsync(url))
-                .ReturnsAsync(new Subscription { Url = "http://localhost:5000/webhook" });
+            var subscriptionServiceMock = new Mock<ISubscriptionService>();
+            subscriptionServiceMock.Setup(x => x.GetAsync(url))
+                .ReturnsAsync(new Subscription { Url = url });
 
-            var controller = new WebhookController(webhookServiceMock.Object, null!);
+            var controller = new WebhookController(subscriptionServiceMock.Object, null!);
 
             // Act
             var result = await controller.Get(url);
@@ -32,11 +32,11 @@ namespace Multicast.Web.Tests.Controllers
         {
             // Arrange
             var url = "http://localhost:5000/webhook";
-            var webhookServiceMock = new Mock<IWebhookService>();
-            webhookServiceMock.Setup(x => x.GetAsync(url))
+            var subscriptionServiceMock = new Mock<ISubscriptionService>();
+            subscriptionServiceMock.Setup(x => x.GetAsync(url))
                 .ReturnsAsync(null as Subscription?);
 
-            var controller = new WebhookController(webhookServiceMock.Object, null!);
+            var controller = new WebhookController(subscriptionServiceMock.Object, null!);
 
             // Act
             var result = await controller.Get(url);

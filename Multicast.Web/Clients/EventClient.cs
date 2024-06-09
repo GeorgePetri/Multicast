@@ -8,16 +8,16 @@ namespace Multicast.Web.Clients;
 public class EventClient : IEventService, IDisposable
 {
     private readonly HttpClient _httpClient;
-    private readonly IWebhookService _webhookService;
+    private readonly ISubscriptionService _subscriptionService;
     private readonly ILogger<EventClient> _logger;
 
     public EventClient(
         HttpClient httpClient,
-        IWebhookService webhookService,
+        ISubscriptionService subscriptionService,
         ILogger<EventClient> logger)
     {
         _httpClient = httpClient;
-        _webhookService = webhookService;
+        _subscriptionService = subscriptionService;
         _logger = logger;
     }
 
@@ -29,7 +29,7 @@ public class EventClient : IEventService, IDisposable
 
     public async Task PublishToAllAsync(Event @event)
     {
-        var events = await _webhookService.GetAllAsync();
+        var events = await _subscriptionService.GetAllAsync();
 
         foreach (var webhook in events)
         {

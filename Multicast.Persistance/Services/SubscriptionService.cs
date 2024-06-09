@@ -5,11 +5,11 @@ using Multicast.Persistance.Entities;
 
 namespace Multicast.Persistance.Services;
 
-public class WebhookService : IWebhookService
+public class SubscriptionService : ISubscriptionService
 {
     private readonly Context _context;
 
-    public WebhookService(Context context) =>
+    public SubscriptionService(Context context) =>
         _context = context;
 
     public async Task<Subscription?> GetAsync(string url)

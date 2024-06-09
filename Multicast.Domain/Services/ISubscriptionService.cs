@@ -1,9 +1,8 @@
-using System.Runtime.CompilerServices;
 using Multicast.Domain.Models;
 
 namespace Multicast.Domain.Services
 {
-    public interface IWebhookService
+    public interface ISubscriptionService
     {
         Task<Subscription?> GetAsync(string url);
 

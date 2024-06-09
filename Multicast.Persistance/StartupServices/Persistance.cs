@@ -9,7 +9,7 @@ public static class Persistance
 {
     public static void AddPersistance(this IServiceCollection services)
     {
-        services.AddTransient<IWebhookService, WebhookService>();
+        services.AddTransient<ISubscriptionService, SubscriptionService>();
 
         // DbContextPool is more efficient than DbContext because it reuses the same instance of the DbContext
         services.AddDbContextPool<Context>(

@@ -10,12 +10,12 @@ namespace Multicast.Web.Controllers;
 [Route("[controller]")]
 public class WebhookController : ControllerBase
 {
-    private readonly IWebhookService _webhookService;
+    private readonly ISubscriptionService _subscriptionService;
     private readonly IEventService _eventService;
 
-    public WebhookController(IWebhookService webHookService, IEventService eventService)
+    public WebhookController(ISubscriptionService subscriptionService, IEventService eventService)
     {
-        _webhookService = webHookService;
+        _subscriptionService = subscriptionService;
         _eventService = eventService;
     }
 
@@ -25,7 +25,7 @@ public class WebhookController : ControllerBase
 
     public async Task<ActionResult<Subscription>> Get([FromQuery, Required] string url)
     {
-        var found = await _webhookService.GetAsync(url);
+        var found = await _subscriptionService.GetAsync(url);
 
         if (found is null)
             return NotFound();
@@ -39,7 +39,7 @@ public class WebhookController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult> Subscribe([FromBody] Subscription subscription)
     {
-        await _webhookService.SubscribeAsync(subscription);
+        await _subscriptionService.SubscribeAsync(subscription);
 
         return CreatedAtAction(nameof(Get), new { url = subscription.Url }, subscription);
     }
