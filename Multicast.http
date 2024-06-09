@@ -1,0 +1,6 @@
+@Multicast_HostAddress = http://localhost:5036
+
+GET {{Multicast_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
