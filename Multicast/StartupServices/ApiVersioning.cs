@@ -14,7 +14,5 @@ public static class ApiVersioning
                     {
                         options.GroupNameFormat = "'v'VVV";
                     });
-
-        services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
     }
 }
