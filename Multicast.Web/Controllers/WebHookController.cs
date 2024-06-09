@@ -22,4 +22,3 @@ public class WebHookController : ControllerBase
         return Created();
     }
 }
-

@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Multicast.Domain\Multicast.Domain.csproj" />
     <ProjectReference Include="..\Multicast.Persistance\Multicast.Persistance.csproj" />
+    <ProjectReference Include="..\Multicast.Web\Multicast.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>
