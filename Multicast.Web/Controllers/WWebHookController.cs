@@ -6,11 +6,11 @@ namespace Multicast.Web.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class WebHookController : ControllerBase
+public class WebhookController : ControllerBase
 {
-    private readonly IWebHookService _webHookService;
+    private readonly IWebhookService _webHookService;
 
-    public WebHookController(IWebHookService webHookService) =>
+    public WebhookController(IWebhookService webHookService) =>
         _webHookService = webHookService;
 
 

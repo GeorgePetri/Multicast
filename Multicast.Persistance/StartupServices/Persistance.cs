@@ -8,6 +8,6 @@ public static class Persistance
 {
     public static void AddPersistance(this IServiceCollection services)
     {
-        services.AddTransient<IWebHookService, WebhookService>();
+        services.AddTransient<IWebhookService, WebhookService>();
     }
 }

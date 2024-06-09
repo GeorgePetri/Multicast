@@ -8,6 +8,6 @@ public static class Web
     public static void AddWeb(this IServiceCollection services)
     {
         services.AddControllers()
-            .AddApplicationPart(typeof(WebHookController).Assembly);
+            .AddApplicationPart(typeof(WebhookController).Assembly);
     }
 }
