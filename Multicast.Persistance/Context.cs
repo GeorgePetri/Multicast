@@ -13,12 +13,8 @@ public class Context : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<SubscriptionEntity>(entity =>
-        {
-            entity.HasKey(e => e.Id);
-            entity.Property(e => e.Url).IsRequired();
-            entity.HasIndex(e => e.Url).IsUnique();
-        });
+        // Apply configurations from the assembly that contains the SubscriptionEntity, scales better than adding each configuration in OnModelCreating
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(SubscriptionEntity).Assembly);
     }
 
 }
