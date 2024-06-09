@@ -13,7 +13,7 @@ public static class Persistance
 
         // DbContextPool is more efficient than DbContext because it reuses the same instance of the DbContext
         services.AddDbContextPool<Context>(
-            options => options.UseSqlite()
+            o => o.UseSqlite("Data Source=../multicast.db")
         );
     }
 }
