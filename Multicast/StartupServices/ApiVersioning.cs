@@ -1,6 +1,3 @@
-using Microsoft.Extensions.Options;
-using Swashbuckle.AspNetCore.SwaggerGen;
-
 namespace Multicast.Startup;
 
 public static class ApiVersioning

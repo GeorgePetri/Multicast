@@ -1,3 +1,4 @@
+using Multicast.Persistance.StartupServices;
 using Multicast.Startup;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,7 @@ builder.Services.AddControllers();
 builder.Services.AddProblemDetails();
 builder.Services.AddVersioning();
 builder.Services.AddOpenApi();
+builder.Services.AddPersistance();
 
 builder.Services.AddEndpointsApiExplorer();
 
