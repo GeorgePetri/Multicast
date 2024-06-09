@@ -8,16 +8,16 @@ namespace Multicast.Web.Controllers;
 [Route("[controller]")]
 public class WebhookController : ControllerBase
 {
-    private readonly IWebhookService _webHookService;
+    private readonly IWebhookService _webhookService;
 
     public WebhookController(IWebhookService webHookService) =>
-        _webHookService = webHookService;
+        _webhookService = webHookService;
 
 
     [HttpPost(Name = "Subscribe")]
     public async Task<ActionResult> Subscribe([FromBody] Subscription subscription)
     {
-        await _webHookService.SubscribeAsync(subscription);
+        await _webhookService.SubscribeAsync(subscription);
 
         return Created();
     }
