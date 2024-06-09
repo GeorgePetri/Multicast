@@ -1,8 +1,8 @@
-namespace Multicast.Web.Controllers;
-
 using Microsoft.AspNetCore.Mvc;
 using Multicast.Domain.Models;
 using Multicast.Domain.Services;
+
+namespace Multicast.Web.Controllers;
 
 [ApiController]
 [Route("[controller]")]

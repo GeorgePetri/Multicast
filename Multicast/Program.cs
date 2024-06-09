@@ -1,15 +1,13 @@
 using Multicast.Persistance.StartupServices;
 using Multicast.Startup;
-using Multicast.Web.Controllers;
+using Multicast.Web.StartupServices;
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddControllers()
-        .AddApplicationPart(typeof(WebHookController).Assembly);
 
 builder.Services.AddProblemDetails();
 builder.Services.AddVersioning();
 builder.Services.AddOpenApi();
+builder.Services.AddWeb();
 builder.Services.AddPersistance();
 
 var app = builder.Build();
