@@ -9,8 +9,6 @@ builder.Services.AddVersioning();
 builder.Services.AddOpenApi();
 builder.Services.AddPersistance();
 
-builder.Services.AddEndpointsApiExplorer();
-
 var app = builder.Build();
 
 app.UseExceptionHandler();
