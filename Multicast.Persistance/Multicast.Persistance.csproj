@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Multicast.Domain\Multicast.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
