@@ -41,7 +41,8 @@ public class EventClient : IEventService, IDisposable
     {
         try
         {
-            await _httpClient.PostAsJsonAsync(url, @event);
+            var response = await _httpClient.PostAsJsonAsync(url, @event);
+            _logger.LogInformation("Event published to {url} with status code {statusCode}", url, response.StatusCode);
         }
         catch (Exception e)
         {

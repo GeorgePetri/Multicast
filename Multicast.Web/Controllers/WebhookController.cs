@@ -11,9 +11,13 @@ namespace Multicast.Web.Controllers;
 public class WebhookController : ControllerBase
 {
     private readonly IWebhookService _webhookService;
+    private readonly IEventService _eventService;
 
-    public WebhookController(IWebhookService webHookService) =>
+    public WebhookController(IWebhookService webHookService, IEventService eventService)
+    {
         _webhookService = webHookService;
+        _eventService = eventService;
+    }
 
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -30,7 +34,7 @@ public class WebhookController : ControllerBase
     }
 
     // This method is idempotent, an argument can be made that it should be a PUT request, I chose POST for simplicity
-    [HttpPost(Name = "Subscribe")]
+    [HttpPost("Subscribe")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult> Subscribe([FromBody] Subscription subscription)
@@ -38,5 +42,15 @@ public class WebhookController : ControllerBase
         await _webhookService.SubscribeAsync(subscription);
 
         return CreatedAtAction(nameof(Get), new { url = subscription.Url }, subscription);
+    }
+
+    // This method is idempotent, an argument can be made that it should be a PUT request, I chose POST for simplicity
+    [HttpPost("SendEventsToAll")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public async Task<ActionResult> SendEventsToAll([FromBody] Event @event)
+    {
+        await _eventService.PublishToAllAsync(@event);
+
+        return NoContent();
     }
 }
