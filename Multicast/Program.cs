@@ -1,20 +1,11 @@
 using Microsoft.Extensions.Options;
+using Multicast.Startup;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-builder.Services.AddApiVersioning()
-    .AddMvc()
-    .AddApiExplorer(
-        options =>
-            {
-                options.GroupNameFormat = "'v'VVV";
-            });
-
-builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+builder.Services.AddVersioning();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
