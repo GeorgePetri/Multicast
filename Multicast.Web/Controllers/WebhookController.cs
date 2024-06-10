@@ -22,6 +22,7 @@ public class WebhookController : ControllerBase
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
 
     public async Task<ActionResult<Subscription>> Get([FromQuery, Required] string url)
     {
@@ -44,9 +45,9 @@ public class WebhookController : ControllerBase
         return CreatedAtAction(nameof(Get), new { url = subscription.Url }, subscription);
     }
 
-    // This method is idempotent, an argument can be made that it should be a PUT request, I chose POST for simplicity
     [HttpPost("SendEventsToAll")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult> SendEventsToAll([FromBody] Event @event)
     {
         await _eventService.PublishToAllAsync(@event);
